@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=pieceType\ where
+comment0.target=BasePiece(int,\ java.lang.String[])
+comment1.params=piece\ move
+comment1.target=java.lang.Boolean\ isValidMove(BasePiece,\ java.lang.String[])
+numComments=2

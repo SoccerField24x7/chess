@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Gutter()
+comment1.params=piece\ player
+comment1.target=void\ addPiece(BasePiece,\ Piece.Color)
+comment2.params=
+comment2.target=BasePiece[]\ getBlackPieces()
+comment3.params=
+comment3.target=BasePiece[]\ getWhitePieces()
+numComments=4

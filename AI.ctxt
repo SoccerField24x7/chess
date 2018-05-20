@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=inCheck
+comment0.target=java.lang.String[]\ getBestMove(java.lang.Boolean)
+comment1.params=
+comment1.target=java.lang.String[]\ predictOpponentsNextMove()
+comment2.params=gameBoard\ who
+comment2.target=java.lang.String[]\ inCheck(Board,\ int)
+comment2.text=\r\n\ Passing\ in\ a\ Board,\ either\ the\ actual,\ or\ a\ fictitious\ board\ containing\ a\ projected\ move.\r\n\ Determine\ if\ "who"\ (them,\ us)\ has\ their\ King\ in\ check.\r\n
+comment3.params=who
+comment3.target=java.lang.String[]\ whereIsKing(int)
+comment3.text=\r\n\ The\ King\ is\ the\ most\ important\ piece,\ we\ need\ to\ know\ where\ he\ is\ at\ all\ times\r\n
+comment4.params=who
+comment4.target=java.lang.String[]\ highestValuePieceExposed(int)
+comment4.text=\r\n\ Find\ the\ highest\ value\ target\ that\ can\ be\ taken\r\n
+comment5.params=coord
+comment5.target=java.lang.Boolean\ isExposed(java.lang.String[])
+comment5.text=\r\n\ Is\ the\ piece\ at\ these\ coordinates\ currently\ vulnerable?\r\n
+comment6.params=piece
+comment6.target=java.lang.Boolean\ moveToGutter(BasePiece)
+comment7.params=
+comment7.target=Gutter\ getGutter()
+numComments=8
