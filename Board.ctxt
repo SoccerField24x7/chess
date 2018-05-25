@@ -1,4 +1,14 @@
 #BlueJ class context
 comment0.params=
-comment0.target=java.lang.Boolean\ initBoard()
-numComments=1
+comment0.target=Board()
+comment1.params=
+comment1.target=void\ initBoard()
+comment2.params=
+comment2.target=void\ renderBoard()
+comment3.params=row\ col
+comment3.target=int\ getSquare(int,\ int)
+comment3.text=\r\n\ Returns\ the\ piece\ located\ at\ the\ coordinates.\r\n\r\n\ @param\ \ col\r\n\ @param\ \ rows\r\n\ @return\ \ array\ Value\ for\ coordinates.\r\n
+comment4.params=val
+comment4.target=char\ getSquareChar(int)
+comment4.text=\r\n\ Converts\ the\ games\ values\ into\ their\ character\ representation.\r\n\r\n\ @param\ \ val\ \ \ value\ currently\ occupying\ a\ square\r\n\ @return\ \ \ \ \ Character\ representation\ of\ a\ value.\r\n
+numComments=5

@@ -31,14 +31,17 @@ public class Board
                 board[i][x] = 0;
             }
         }
+
+        /* add pieces to the board */
     }
 
     public void renderBoard() {
         /* print header row */
-        //System.out.printf("%s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s\n", "|  0","|","1","|","2","|","3","|","4","|","5","|","  6  |"); //this needs to be modified to fit chess (top, bottom)
+        System.out.printf("%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s\n", "|     ","|  0","|","1","|","2","|","3","|","4","|","5","|","6","|","7","|"); //this needs to be modified to fit chess (top, bottom)
 
         /* now print each subsequent row */
         for(int i=0 ; i < BOARD_SIZE_HEIGHT ; i++) {
+            System.out.printf("|%3s  ", 'N');
             for(int x=0 ; x < BOARD_SIZE_WIDTH ; x++) {
                 if(x == 0) {
                     System.out.print("|");
@@ -57,7 +60,8 @@ public class Board
      * @return  array Value for coordinates.
      */
     public int getSquare(int row, int col) {
-        return board[row][col];
+
+        return this.board[row][col];
     }
 
     /**
@@ -67,14 +71,14 @@ public class Board
      * @return     Character representation of a value.
      */
     private char getSquareChar(int val) { // TODO: update for all of the possible pieces and player
-        switch(val) {
+        /*switch(val) {
             case X:
                 return 'R';
             case O:
                 return 'Y';
             case 9:
                 return '*';
-        }
-        return ' ';
+        }*/
+        return 'Q';
     }
 }
