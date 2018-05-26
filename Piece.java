@@ -12,6 +12,10 @@ public interface Piece
         BLACK, WHITE
     }
 
+    public static enum PieceType {
+        PAWN, ROOK, BISHOP, KNIGHT, QUEEN, KING
+    }
+
     /**
      * An example of a method header - replace this comment with your own
      * 
