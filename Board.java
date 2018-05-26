@@ -36,12 +36,13 @@ public class Board
     }
 
     public void renderBoard() {
+        int rowMarker = 65;
         /* print header row */
-        System.out.printf("%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s\n", "|     ","|  0","|","1","|","2","|","3","|","4","|","5","|","6","|","7","|"); //this needs to be modified to fit chess (top, bottom)
+        System.out.printf("%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s\n", "      ","|  0","|","1","|","2","|","3","|","4","|","5","|","6","|","7","|"); //this needs to be modified to fit chess (top, bottom)
 
         /* now print each subsequent row */
         for(int i=0 ; i < BOARD_SIZE_HEIGHT ; i++) {
-            System.out.printf("|%3s  ", 'N');
+            System.out.printf("|%3s  ", Character.toString((char)rowMarker++));
             for(int x=0 ; x < BOARD_SIZE_WIDTH ; x++) {
                 if(x == 0) {
                     System.out.print("|");
