@@ -38,7 +38,7 @@ public class Board
     public void renderBoard() {
         int rowMarker = 65;
         /* print header row */
-        System.out.printf("%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s%3s\n", "      ","|  0","|","1","|","2","|","3","|","4","|","5","|","6","|","7","|"); //this needs to be modified to fit chess (top, bottom)
+        System.out.printf("%3s%3s%3s%4s%3s%4s%3s%4s%4s%4s%4s%4s%4s%4s%4s%4s%4s\n", "      ","|   0","|"," 1","|"," 2","|"," 3","|"," 4","|"," 5","|"," 6","|"," 7","|"); //this needs to be modified to fit chess (top, bottom)
 
         /* now print each subsequent row */
         for(int i=0 ; i < BOARD_SIZE_HEIGHT ; i++) {
@@ -47,7 +47,7 @@ public class Board
                 if(x == 0) {
                     System.out.print("|");
                 }
-                System.out.printf("%3s  |", getSquareChar(board[i][x]));
+                System.out.printf("%4s  |", getSquareChar(board[i][x]));
             }
             System.out.print("\n");
         }
@@ -71,7 +71,7 @@ public class Board
      * @param  val   value currently occupying a square
      * @return     Character representation of a value.
      */
-    private char getSquareChar(int val) { // TODO: update for all of the possible pieces and player
+    private String getSquareChar(int val) { // TODO: update for all of the possible pieces and player
         /*switch(val) {
             case X:
                 return 'R';
@@ -80,6 +80,6 @@ public class Board
             case 9:
                 return '*';
         }*/
-        return 'Q';
+        return "CP";
     }
 }
