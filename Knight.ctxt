@@ -1,4 +1,12 @@
 #BlueJ class context
-comment0.params=pieceType\ where
-comment0.target=Knight(int,\ java.lang.String[])
-numComments=1
+comment0.params=color\ where
+comment0.target=Knight(Piece.Color,\ int[])
+comment1.params=color
+comment1.target=Knight(Piece.Color)
+comment2.params=move
+comment2.target=boolean\ isValidMove(int[])
+comment3.params=location
+comment3.target=boolean\ canTakePiece(int[])
+comment4.params=
+comment4.target=java.lang.String\ getMarker()
+numComments=5

@@ -7,7 +7,25 @@
  */
 public class Bishop extends BasePiece
 {
-    Bishop(int pieceType, String[] where) {
-        super(pieceType, where);
+    Bishop(Piece.Color color, int[] where) {
+        super(Piece.PieceType.BISHOP, color, where);
+    }
+    Bishop(Piece.Color color) {
+        super(Piece.PieceType.BISHOP, color, new int[]{-1,-1});        
+    }
+    
+    public boolean isValidMove(int[] move) {
+        
+        return false;
+    }
+    
+    public boolean canTakePiece(int[] location) {
+        
+        return false;
+    }
+
+    public String getMarker() {
+        String color = this.pieceColor == Piece.Color.BLACK ? "b" : "w";
+        return color + 'B';
     }
 }

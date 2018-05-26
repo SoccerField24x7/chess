@@ -7,7 +7,25 @@
  */
 public class Rook extends BasePiece
 {
-    Rook(int pieceType, String[] where) {
-        super(pieceType, where);
+    Rook(Piece.Color color, int[] where) {
+        super(Piece.PieceType.ROOK, color, where);
+    }
+    Rook(Piece.Color color) {
+        super(Piece.PieceType.ROOK, color, new int[]{-1,-1});
+    }
+
+    public boolean isValidMove(int[] move) {
+
+        return false;
+    }
+
+    public boolean canTakePiece(int[] location) {
+
+        return false;
+    }
+
+    public String getMarker() {
+        String color = this.pieceColor == Piece.Color.BLACK ? "b" : "w";
+        return color + 'R';
     }
 }
