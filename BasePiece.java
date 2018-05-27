@@ -48,5 +48,19 @@ public abstract class BasePiece implements Piece
     public Piece.Color getPieceColor() {
         return this.pieceColor;
     }
+
+    //from where I am, is location (y,x) possible based on the rule?
+    public boolean isTargetMatch(int[] from, int[] target, int[] rule) {
+        //determine y,x movement to get to target
+        int yDiff = from[0] - target[0];
+        int xDiff = from[1] - target[1];
+
+        if(yDiff == rule[0] && xDiff == rule[1]) {
+
+            return true;
+        }
+
+        return false;
+    }
     
 }
