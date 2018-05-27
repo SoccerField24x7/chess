@@ -13,7 +13,7 @@ public interface Piece
     }
 
     public static enum PieceType {
-        PAWN, ROOK, BISHOP, KNIGHT, QUEEN, KING
+        NONE, PAWN, ROOK, BISHOP, KNIGHT, QUEEN, KING
     }
 
     /**
@@ -22,7 +22,11 @@ public interface Piece
      * @param  y    a sample parameter for a method
      * @return        the result produced by sampleMethod 
      */
-    public Boolean isValidMove(BasePiece piece, String[] move); // does this piece actually move that way?
-    
+    public abstract boolean isValidMove(int[] toLocation); // does this piece actually move that way?
+    public abstract boolean canTakePiece(int[] inLocation);
+    public boolean doMove(int[] location);
+    public String getMarker();
+    public Piece.PieceType getPieceType();
+    public Piece.Color getPieceColor();
     
 }
