@@ -1,4 +1,7 @@
 #BlueJ class context
 comment0.params=args
 comment0.target=void\ main(java.lang.String[])
-numComments=1
+comment1.params=y\ x
+comment1.target=int[]\ coordinates(int,\ int)
+comment1.text=\r\n\ This\ converts\ the\ y\ and\ x\ coordinates\ used\ to\ specify\ a\ move\ into\ an\ integer\ array\ "location"\r\n\ @param\ y\r\n\ @param\ x\r\n\ @return\r\n
+numComments=2

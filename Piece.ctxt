@@ -12,4 +12,6 @@ comment4.params=
 comment4.target=Piece.PieceType\ getPieceType()
 comment5.params=
 comment5.target=Piece.Color\ getPieceColor()
-numComments=6
+comment6.params=from\ to\ rule
+comment6.target=boolean\ isTargetMatch(int[],\ int[],\ int[])
+numComments=7
