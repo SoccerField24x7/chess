@@ -58,10 +58,15 @@ public class Knight extends BasePiece
     }
 
     public boolean isValidMove(int[] move) {
-        //do you already have a piece there?  return false
+
+        //iterate the valid moves to see if we have a rule match
+        for(int i=0; i < this.validMoves.length; i++) {
+            if(isTargetMatch(this.location, move, this.validMoves[i])) {
+                return true;
+            }
+        }
 
 
-        //compare the move they want to make to the valid moves and return true if it fits, or false if it does not
         return false;
     }
 
