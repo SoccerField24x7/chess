@@ -28,5 +28,6 @@ public interface Piece
     public String getMarker();
     public Piece.PieceType getPieceType();
     public Piece.Color getPieceColor();
+    public boolean isTargetMatch(int[] from, int[] to, int[] rule);
     
 }
