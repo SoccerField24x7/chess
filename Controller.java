@@ -47,7 +47,7 @@ public class Controller
         }
         
         //get an actual piece (pawn)
-        thisPiece = board.getSquarePiece(new int[]{6,3});
+        thisPiece = board.getSquarePiece(new int[]{7,1});
         System.out.println("String representation of the piece: " + thisPiece.getMarker());
         System.out.println("Piece Type: " + thisPiece.getPieceType());
 
@@ -58,6 +58,24 @@ public class Controller
         board.makeMove(new int[]{1,3}, new int[]{3,3});  //specifying coordintes by hand
 
         board.renderBoard();
+        
+        //now lets test a rule using piece from above (specific rule test)
+        if(thisPiece.isTargetMatch(coordinates(7,1), coordinates(6,3), coordinates(1,-2)) == false) {
+            System.out.println("Bad Move");
+        } else {
+            System.out.println("Good Move");
+        }
+
+        //now let's test the proper method with a good move
+        if(thisPiece.isValidMove(coordinates(6,3))) {
+            System.out.println("got a good move");
+        }
+
+        //and a bad move
+        if(!thisPiece.isValidMove(coordinates(6,2))) {
+            System.out.println("got a bad move");
+        }
+        
         
         /*********************** end tests *************************/
         
