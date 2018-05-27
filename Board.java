@@ -7,10 +7,12 @@
  */
 public class Board
 {
-    private BasePiece[][] board; // keeps track of where the pieces are
+    private Piece.PieceType[][] board; // keeps track of where the pieces are
     private int[][] game; // keeps track of the moves made
     private int moveNo;
     private boolean gameOver;
+    private BasePiece[] pieces = new BasePiece[32];
+    private int pieceCount = 0;
     public final int BOARD_SIZE_WIDTH = 8;
     public final int BOARD_SIZE_HEIGHT = 8;
     public final int MAX_MOVES = 1000;  // research what an average chess game lasts.
@@ -33,43 +35,88 @@ public class Board
         }
 
         /* add white pieces to the board */
-        board[0][0] = Piece.PieceType.wROOK;
-        board[0][1] = Piece.PieceType.wKNIGHT;
-        board[0][2] = Piece.PieceType.wBISHOP;
-        board[0][3] = Piece.PieceType.wQUEEN;
-        board[0][4] = Piece.PieceType.wKING;
-        board[0][5] = Piece.PieceType.wBISHOP;
-        board[0][6] = Piece.PieceType.wKNIGHT;
-        board[0][7] = Piece.PieceType.wROOK;
+        board[0][0] = Piece.PieceType.ROOK; // place marker on board
+        pieces[pieceCount++] = new Rook(Piece.Color.WHITE, new int[] {0,0}); //create piece
 
-        board[1][0] = Piece.PieceType.wPAWN;
-        board[1][1] = Piece.PieceType.wPAWN;
-        board[1][2] = Piece.PieceType.wPAWN;
-        board[1][3] = Piece.PieceType.wPAWN;
-        board[1][4] = Piece.PieceType.wPAWN;
-        board[1][5] = Piece.PieceType.wPAWN;
-        board[1][6] = Piece.PieceType.wPAWN;
-        board[1][7] = Piece.PieceType.wPAWN;
+        board[0][1] = Piece.PieceType.KNIGHT;
+        pieces[pieceCount++] = new Knight(Piece.Color.WHITE, new int[] {0,1});
 
-         add black pieces to the board
-        board[7][0] = Piece.PieceType.bROOK;
-        board[7][1] = Piece.PieceType.bKNIGHT;
-        board[7][2] = Piece.PieceType.bBISHOP;
-        board[7][3] = Piece.PieceType.bQUEEN;
-        board[7][4] = Piece.PieceType.bKING;
-        board[7][5] = Piece.PieceType.bBISHOP;
-        board[7][6] = Piece.PieceType.bKNIGHT;
-        board[7][7] = Piece.PieceType.bROOK;
+        board[0][2] = Piece.PieceType.BISHOP;
+        pieces[pieceCount++] = new Bishop(Piece.Color.WHITE, new int[] {0,2});
 
-        board[6][0] = Piece.PieceType.bPAWN;
-        board[6][1] = Piece.PieceType.bPAWN;
-        board[6][2] = Piece.PieceType.bPAWN;
-        board[6][3] = Piece.PieceType.bPAWN;
-        board[6][4] = Piece.PieceType.bPAWN;
-        board[6][5] = Piece.PieceType.bPAWN;
-        board[6][6] = Piece.PieceType.bPAWN;
-        board[6][7] = Piece.PieceType.bPAWN;
+        board[0][3] = Piece.PieceType.QUEEN;
+        pieces[pieceCount++] = new Queen(Piece.Color.WHITE, new int[] {0,3});
 
+        board[0][4] = Piece.PieceType.KING;
+        pieces[pieceCount++] = new King(Piece.Color.WHITE, new int[] {0,4});
+
+        board[0][5] = Piece.PieceType.BISHOP;
+        pieces[pieceCount++] = new Bishop(Piece.Color.WHITE, new int[] {0,5});
+
+        board[0][6] = Piece.PieceType.KNIGHT;
+        pieces[pieceCount++] = new Knight(Piece.Color.WHITE, new int[] {0,6});
+
+        board[0][7] = Piece.PieceType.ROOK;
+        pieces[pieceCount++] = new Rook(Piece.Color.WHITE, new int[] {0,7});
+
+        board[1][0] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.WHITE, new int[] {1,0});
+        board[1][1] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.WHITE, new int[] {1,1});
+        board[1][2] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.WHITE, new int[] {1,2});
+        board[1][3] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.WHITE, new int[] {1,3});
+        board[1][4] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.WHITE, new int[] {1,4});
+        board[1][5] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.WHITE, new int[] {1,5});
+        board[1][6] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.WHITE, new int[] {1,6});
+        board[1][7] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.WHITE, new int[] {1,7});
+
+        /* add black pieces to the board */
+        board[7][0] = Piece.PieceType.ROOK;
+        pieces[pieceCount++] = new Rook(Piece.Color.BLACK, new int[] {7,0}); //create piece
+
+        board[7][1] = Piece.PieceType.KNIGHT;
+        pieces[pieceCount++] = new Knight(Piece.Color.BLACK, new int[] {7,1});
+        
+        board[7][2] = Piece.PieceType.BISHOP;
+        pieces[pieceCount++] = new Bishop(Piece.Color.BLACK, new int[] {7,2});
+        
+        board[7][3] = Piece.PieceType.QUEEN;
+        pieces[pieceCount++] = new Queen(Piece.Color.BLACK, new int[] {7,3});
+        
+        board[7][4] = Piece.PieceType.KING;
+        pieces[pieceCount++] = new King(Piece.Color.BLACK, new int[] {7,4});
+        
+        board[7][5] = Piece.PieceType.BISHOP;
+        pieces[pieceCount++] = new Bishop(Piece.Color.BLACK, new int[] {7,5});
+        
+        board[7][6] = Piece.PieceType.KNIGHT;
+        pieces[pieceCount++] = new Knight(Piece.Color.BLACK, new int[] {7,6});
+        
+        board[7][7] = Piece.PieceType.ROOK;
+        pieces[pieceCount++] = new Rook(Piece.Color.BLACK, new int[] {7,7});
+
+        board[6][0] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.BLACK, new int[] {6,0});
+        board[6][1] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.BLACK, new int[] {6,1});
+        board[6][2] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.BLACK, new int[] {6,2});
+        board[6][3] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.BLACK, new int[] {6,3});
+        board[6][4] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.BLACK, new int[] {6,4});
+        board[6][5] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.BLACK, new int[] {6,5});
+        board[6][6] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.BLACK, new int[] {6,6});
+        board[6][7] = Piece.PieceType.PAWN;
+        pieces[pieceCount++] = new Pawn(Piece.Color.BLACK, new int[] {6,7});
 
     }
 
@@ -85,57 +132,69 @@ public class Board
                 if(x == 0) {
                     System.out.print("|");
                 }
-                System.out.printf("%4s  |", getSquareChar(board[i][x]));
+                System.out.printf("%4s  |", getSquareMarker(board[i][x], new int[] {i, x}));
             }
             System.out.print("\n");
         }
     }
 
     /**
-     * Returns the piece located at the coordinates.
+     * Returns the piece type located at the coordinates.
      *
      * @param  col
      * @param  rows
      * @return  array Value for coordinates.
      */
-    public Piece.PieceType getSquare(int row, int col) {
+    public Piece.PieceType getSquareValue(int[] location) {
 
-        return this.board[row][col];
+        return this.board[location[0]][location[1]];
     }
 
-    /**
-     * Converts the games values into their character representation.
-     *
-     * @param  val   value currently occupying a square
-     * @return     Character representation of a value.
-     */
-    private String getSquareChar(Piece.PieceType val) { // TODO: update for all of the possible pieces and player
-        switch(val) {
-            case wKING:
-                return "wK";
-            case wQUEEN:
-                return "wQ";
-            case wBISHOP:
-                return "wB";
-            case wROOK:
-                return "wR";
-            case wKNIGHT:
-                return "wK";
-            case wPAWN:
-                return "wP";
-            case bKING:
-                return "bK";
-            case bQUEEN:
-                return "bQ";
-            case bBISHOP:
-                return "bB";
-            case bROOK:
-                return "bR";
-            case bKNIGHT:
-                return "bK";
-            case bPAWN:
-                return "bP";
+    public BasePiece getSquarePiece(int[] location) {
+        return findByLocation(getSquareValue(location), location);
+    }
+
+    public String getSquareMarker(Piece.PieceType type, int[] location) {
+        BasePiece piece = findByLocation(type, location);
+        if(piece == null) {
+            return "  ";
         }
-        return "  ";
+
+        return piece.getMarker();
+    }
+
+    public boolean makeMove(int[] from, int[] to) {
+
+        //get the actual piece
+        BasePiece piece = getSquarePiece(from);
+
+        if(piece == null) {
+            return false;
+        }
+
+        BasePiece target = getSquarePiece(to);
+
+        if(target == null) { //it's open, just move it
+            piece.doMove(to);
+
+            board[from[0]][from[1]] = Piece.PieceType.NONE;
+            board[to[0]][to[1]] = piece.getPieceType();
+        }
+
+        return true;
+    }
+
+    private BasePiece findByLocation(Piece.PieceType type, int[] location) {
+        for(int i=0; i < this.pieceCount; i++) {
+            BasePiece thisPiece = this.pieces[i];
+            if(thisPiece.pieceType != type) {
+                continue;  //move on to the next piece
+            }
+
+            if(thisPiece.location[0] == location[0] && thisPiece.location[1] == location[1]) { //see if the coordinates match
+                return thisPiece;
+            }
+        }
+        return null;
     }
 }
