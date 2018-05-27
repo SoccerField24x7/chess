@@ -1,5 +1,15 @@
 #BlueJ class context
-comment0.params=piece\ move
-comment0.target=java.lang.Boolean\ isValidMove(BasePiece,\ java.lang.String[])
+comment0.params=toLocation
+comment0.target=boolean\ isValidMove(int[])
 comment0.text=\r\n\ An\ example\ of\ a\ method\ header\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ \ \ \ the\ result\ produced\ by\ sampleMethod\ \r\n
-numComments=1
+comment1.params=inLocation
+comment1.target=boolean\ canTakePiece(int[])
+comment2.params=location
+comment2.target=boolean\ doMove(int[])
+comment3.params=
+comment3.target=java.lang.String\ getMarker()
+comment4.params=
+comment4.target=Piece.PieceType\ getPieceType()
+comment5.params=
+comment5.target=Piece.Color\ getPieceColor()
+numComments=6
