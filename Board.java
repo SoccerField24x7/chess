@@ -179,13 +179,44 @@ public class Board
 
             board[from[0]][from[1]] = Piece.PieceType.NONE;
             board[to[0]][to[1]] = piece.getPieceType();
+            return true;
         }
+        
+        if(piece.pieceColor == target.pieceColor){
+            return false;
+        }
+        
+        if(piece.pieceType == Piece.PieceType.PAWN){
+            if(piece.canTakePiece(to)){
+                removeByLocation(to);
+                piece.doMove(to);
 
+                board[from[0]][from[1]] = Piece.PieceType.NONE;
+                board[to[0]][to[1]] = piece.getPieceType();
+                return true;
+            }
+            return false;
+        }
+        
+        if(target.pieceType == Piece.PieceType.KING){
+            return false;
+        }
+        
+        removeByLocation(to);
+        piece.doMove(to);
+        
+        board[from[0]][from[1]] = Piece.PieceType.NONE;
+        board[to[0]][to[1]] = piece.getPieceType();
+        
         return true;
     }
 
     private BasePiece findByLocation(Piece.PieceType type, int[] location) {
         for(int i=0; i < this.pieceCount; i++) {
+            if(this.pieces[i] == null){
+                continue;
+            }
+            
             BasePiece thisPiece = this.pieces[i];
             if(thisPiece.pieceType != type) {
                 continue;  //move on to the next piece
@@ -196,5 +227,19 @@ public class Board
             }
         }
         return null;
+    }
+    
+    private void removeByLocation(int[] location){
+        for(int i=0; i < this.pieceCount; i++) {
+            if(this.pieces[i] == null){
+                continue;
+            }
+            
+            BasePiece thisPiece = this.pieces[i];
+            
+            if(thisPiece.location[0] == location[0] && thisPiece.location[1] == location[1]) { //see if the coordinates match
+                this.pieces[i] = null;
+            }
+        }
     }
 }

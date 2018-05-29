@@ -10,18 +10,9 @@ public class Rook extends BasePiece
     Rook(Piece.Color color, int[] where) {
         super(Piece.PieceType.ROOK, color, where);
     }
+    
     Rook(Piece.Color color) {
         super(Piece.PieceType.ROOK, color, new int[]{-1,-1});
-    }
-
-    public boolean isValidMove(int[] move) {
-
-        return false;
-    }
-
-    public boolean canTakePiece(int[] location) {
-
-        return false;
     }
 
     public String getMarker() {

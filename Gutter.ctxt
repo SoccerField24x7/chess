@@ -1,10 +1,12 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Gutter()
-comment1.params=piece\ player
-comment1.target=void\ addPiece(BasePiece,\ Piece.Color)
-comment2.params=
-comment2.target=BasePiece[]\ getBlackPieces()
+comment0.target=Gutter
+comment0.text=\r\n\ This\ is\ the\ "cemetery"\ for\ all\ taken\ pieces.\ \ One\ per\ game.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Gutter()
+comment2.params=piece\ player
+comment2.target=void\ addPiece(BasePiece,\ Piece.Color)
 comment3.params=
-comment3.target=BasePiece[]\ getWhitePieces()
-numComments=4
+comment3.target=BasePiece[]\ getBlackPieces()
+comment4.params=
+comment4.target=BasePiece[]\ getWhitePieces()
+numComments=5

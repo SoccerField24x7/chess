@@ -63,4 +63,20 @@ public abstract class BasePiece implements Piece
         return false;
     }
     
+    public boolean isValidMove(int[] move) {
+
+        //iterate the valid moves to see if we have a rule match
+        for(int i=0; i < this.validMoves.length; i++) {
+            if(isTargetMatch(this.location, move, this.validMoves[i])) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
+    public boolean canTakePiece(int[] location) {
+        
+        return true;
+    }
 }

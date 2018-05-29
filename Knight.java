@@ -57,26 +57,8 @@ public class Knight extends BasePiece
         this.validMoves[7][1] = -2;
     }
 
-    public boolean isValidMove(int[] move) {
-
-        //iterate the valid moves to see if we have a rule match
-        for(int i=0; i < this.validMoves.length; i++) {
-            if(isTargetMatch(this.location, move, this.validMoves[i])) {
-                return true;
-            }
-        }
-
-
-        return false;
-    }
-
-    public boolean canTakePiece(int[] location) {
-
-        return false;
-    }
-
     public String getMarker() {
         String color = this.pieceColor == Piece.Color.BLACK ? "b" : "w";
-        return color + 'K';
+        return color + 'k';
     }
 }

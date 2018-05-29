@@ -10,18 +10,9 @@ public class Queen extends BasePiece
     Queen(Piece.Color color, int[] where) {
         super(Piece.PieceType.QUEEN, color, where);
     }
+    
     Queen(Piece.Color color) {
         super(Piece.PieceType.QUEEN, color, new int[]{-1,-1});
-    }
-
-    public boolean isValidMove(int[] move) {
-
-        return false;
-    }
-
-    public boolean canTakePiece(int[] location) {
-
-        return false;
     }
 
     public String getMarker() {

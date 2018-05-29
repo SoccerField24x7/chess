@@ -1,12 +1,10 @@
 #BlueJ class context
-comment0.params=color\ where
-comment0.target=Queen(Piece.Color,\ int[])
-comment1.params=color
-comment1.target=Queen(Piece.Color)
-comment2.params=move
-comment2.target=boolean\ isValidMove(int[])
-comment3.params=location
-comment3.target=boolean\ canTakePiece(int[])
-comment4.params=
-comment4.target=java.lang.String\ getMarker()
-numComments=5
+comment0.target=Queen
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Queen\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=color\ where
+comment1.target=Queen(Piece.Color,\ int[])
+comment2.params=color
+comment2.target=Queen(Piece.Color)
+comment3.params=
+comment3.target=java.lang.String\ getMarker()
+numComments=4
