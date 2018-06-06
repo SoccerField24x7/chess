@@ -276,6 +276,47 @@ public class Board
         } else {
             System.out.println("We're moving diagonally");
             //figure out which way we are going
+            if(here[0] < there[0] && here[1] < there[1]) {
+                System.out.println("Forward and right");
+                int i = here[0];
+                int x = here[1];
+                //System.out.println("here row: " + i);
+                //System.out.println("here col: " + x);
+                while(i != there[0]) {
+                    if(this.getSquareValue(new int[]{i++, x++}) != Piece.PieceType.NONE) {
+                        return true;
+                    }
+                }
+            } else if (here[0] < there[0] && here[1] > there[1]) {
+                System.out.println("Forward and left");
+                int i = here[0];
+                int x = here[1];
+                while(i != there[0]) {
+                    if(this.getSquareValue(new int[]{i++, x--}) != Piece.PieceType.NONE) {
+                        return true;
+                    }
+                }
+
+            } else if (here[0] > there[0] && here[1] < there[1]) {
+                System.out.println("Backward and right");
+                int i = here[0];
+                int x = here[1];
+                while(i != there[0]) {
+                    if(this.getSquareValue(new int[]{i--, x++}) != Piece.PieceType.NONE) {
+                        return true;
+                    }
+                }
+
+            } else if (here[0] > there[0] && here[1] > there[1]) {
+                System.out.println("Backward and left");
+                int i = here[0];
+                int x = here[1];
+                while(i != there[0]) {
+                    if(this.getSquareValue(new int[]{i--, x--}) != Piece.PieceType.NONE) {
+                        return true;
+                    }
+                }
+            }
         }
 
         return false;
