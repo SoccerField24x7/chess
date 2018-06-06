@@ -37,6 +37,7 @@ public class Board
         }
 
         /* add white pieces to the board */
+        //TODO: create factory class
         board[0][0] = Piece.PieceType.ROOK; // place marker on board
         pieces[pieceCount++] = new Rook(Piece.Color.WHITE, new int[] {0,0}); //create piece
 
@@ -178,6 +179,16 @@ public class Board
             return false;
         }
 
+        //if not a knight, make sure the way is clear
+        if(piece.getPieceType() != Piece.PieceType.KNIGHT) {
+            if(isPathBlocked(from, to)) {
+                System.out.println("piece in the way!");
+                return false;
+            } else {
+                System.out.println("It's all clear!");
+            }
+        }
+
         BasePiece target = getSquarePiece(to);
 
         if(target == null) { //it's open, just move it
@@ -214,6 +225,63 @@ public class Board
         board[from[0]][from[1]] = Piece.PieceType.NONE;
         board[to[0]][to[1]] = piece.getPieceType();
         
+        return true;
+    }
+
+    public boolean isPathBlocked(int[] here, int[] there) {
+
+        if(here[0] == there[0] || here[1] == there[1]) {
+            if(here[0] != there[0]) {
+                System.out.println("We're moving up/down");
+                if(here[0] < there[0]) { //forward (as it relates to the board, not the color)
+                    System.out.println("forward");
+                    for(int i = here[0]+1; i < there[0]; i++) { //check up to one space short
+                        System.out.println(this.getSquareValue(new int[]{i, here[1]}));
+                        if(this.getSquareValue(new int[]{i, here[1]}) != Piece.PieceType.NONE) {
+                            return true;
+                        }
+                    }
+                } else { //backward
+                    System.out.println("backward");
+                    for(int i = here[0]-1; i > there[0]; i--) {
+                        System.out.println(this.getSquareValue(new int[]{i, here[1]}));
+                        if(this.getSquareValue(new int[]{i, here[1]}) != Piece.PieceType.NONE) {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            if(here[1] != there[1]) {
+                System.out.println("We're moving left/right");
+                if(here[1] > there[1]) { //left (as it relates to the board, not the color)
+                    System.out.println("left");
+                    for(int i = here[1]-1; i > there[1]; i--) {
+                        System.out.println(this.getSquareValue(new int[]{here[0], i}));
+                        if(this.getSquareValue(new int[]{here[0], i}) != Piece.PieceType.NONE) {
+                            return true;
+                        }
+                    }
+                } else { //right
+                    System.out.println("right");
+                    for(int i = here[1]+1; i < there[1]; i++) {
+                        System.out.println(this.getSquareValue(new int[]{here[0], i}));
+                        if(this.getSquareValue(new int[]{here[0], i}) != Piece.PieceType.NONE) {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+        } else {
+            System.out.println("We're moving diagonally");
+            //figure out which way we are going
+        }
+
+        return false;
+    }
+
+    public boolean isDiagonal(int[] here, int[] there) {
         return true;
     }
 

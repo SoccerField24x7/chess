@@ -1,22 +1,22 @@
 #BlueJ class context
 comment0.target=AI
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ AI\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ AI\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=inCheck
 comment1.target=java.lang.String[]\ getBestMove(java.lang.Boolean)
 comment2.params=
 comment2.target=java.lang.String[]\ predictOpponentsNextMove()
 comment3.params=gameBoard\ who
 comment3.target=java.lang.String[]\ inCheck(Board,\ int)
-comment3.text=\r\n\ Passing\ in\ a\ Board,\ either\ the\ actual,\ or\ a\ fictitious\ board\ containing\ a\ projected\ move.\r\n\ Determine\ if\ "who"\ (them,\ us)\ has\ their\ King\ in\ check.\r\n
+comment3.text=\n\ Passing\ in\ a\ Board,\ either\ the\ actual,\ or\ a\ fictitious\ board\ containing\ a\ projected\ move.\n\ Determine\ if\ "who"\ (them,\ us)\ has\ their\ King\ in\ check.\n
 comment4.params=who
 comment4.target=java.lang.String[]\ whereIsKing(int)
-comment4.text=\r\n\ The\ King\ is\ the\ most\ important\ piece,\ we\ need\ to\ know\ where\ he\ is\ at\ all\ times\r\n
+comment4.text=\n\ The\ King\ is\ the\ most\ important\ piece,\ we\ need\ to\ know\ where\ he\ is\ at\ all\ times\n
 comment5.params=who
 comment5.target=java.lang.String[]\ highestValuePieceExposed(int)
-comment5.text=\r\n\ Find\ the\ highest\ value\ target\ that\ can\ be\ taken\r\n
+comment5.text=\n\ Find\ the\ highest\ value\ target\ that\ can\ be\ taken\n
 comment6.params=coord
 comment6.target=java.lang.Boolean\ isExposed(java.lang.String[])
-comment6.text=\r\n\ Is\ the\ piece\ at\ these\ coordinates\ currently\ vulnerable?\r\n
+comment6.text=\n\ Is\ the\ piece\ at\ these\ coordinates\ currently\ vulnerable?\n
 comment7.params=piece
 comment7.target=java.lang.Boolean\ moveToGutter(BasePiece)
 comment8.params=
