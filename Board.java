@@ -17,7 +17,7 @@ public class Board
     private int pieceCount = 0;
     public final int BOARD_SIZE_WIDTH = 8;
     public final int BOARD_SIZE_HEIGHT = 8;
-    public final int MAX_MOVES = 1000;  // research what an average chess game lasts.
+    public final int MAX_MOVES = 1000; 
     public final int OPEN = 0;
 
     private Board() {
@@ -160,7 +160,25 @@ public class Board
     public BasePiece getSquarePiece(int[] location) {
         return findByLocation(getSquareValue(location), location);
     }
-
+    
+    public boolean checkForWinner(){
+        int kingCount = 0;
+        
+        for(int i=0 ; i < BOARD_SIZE_HEIGHT ; i++) {
+            for(int x=0 ; x < BOARD_SIZE_WIDTH ; x++) {
+                if(board[i][x] == Piece.PieceType.KING){
+                    kingCount++;
+                }
+            }
+        }
+        
+        if(kingCount == 1){
+            return true;
+        }
+        
+        return false;
+    }
+    
     public String getSquareMarker(Piece.PieceType type, int[] location) {
         BasePiece piece = findByLocation(type, location);
         if(piece == null) {
@@ -232,9 +250,9 @@ public class Board
 
         if(here[0] == there[0] || here[1] == there[1]) {
             if(here[0] != there[0]) {
-                System.out.println("We're moving up/down");
+                
                 if(here[0] < there[0]) { //forward (as it relates to the board, not the color)
-                    System.out.println("forward");
+                   
                     for(int i = here[0]+1; i < there[0]; i++) { //check up to one space short
                         System.out.println(this.getSquareValue(new int[]{i, here[1]}));
                         if(this.getSquareValue(new int[]{i, here[1]}) != Piece.PieceType.NONE) {
@@ -242,7 +260,7 @@ public class Board
                         }
                     }
                 } else { //backward
-                    System.out.println("backward");
+                   
                     for(int i = here[0]-1; i > there[0]; i--) {
                         System.out.println(this.getSquareValue(new int[]{i, here[1]}));
                         if(this.getSquareValue(new int[]{i, here[1]}) != Piece.PieceType.NONE) {
@@ -253,9 +271,9 @@ public class Board
             }
 
             if(here[1] != there[1]) {
-                System.out.println("We're moving left/right");
+                
                 if(here[1] > there[1]) { //left (as it relates to the board, not the color)
-                    System.out.println("left");
+                    
                     for(int i = here[1]-1; i > there[1]; i--) {
                         System.out.println(this.getSquareValue(new int[]{here[0], i}));
                         if(this.getSquareValue(new int[]{here[0], i}) != Piece.PieceType.NONE) {
@@ -263,7 +281,7 @@ public class Board
                         }
                     }
                 } else { //right
-                    System.out.println("right");
+                   
                     for(int i = here[1]+1; i < there[1]; i++) {
                         System.out.println(this.getSquareValue(new int[]{here[0], i}));
                         if(this.getSquareValue(new int[]{here[0], i}) != Piece.PieceType.NONE) {
@@ -274,10 +292,10 @@ public class Board
             }
 
         } else {
-            System.out.println("We're moving diagonally");
+            
             //figure out which way we are going
             if(here[0] < there[0] && here[1] < there[1]) {
-                System.out.println("Forward and right");
+                
                 int i = here[0];
                 int x = here[1];
                 //System.out.println("here row: " + i);
@@ -288,7 +306,7 @@ public class Board
                     }
                 }
             } else if (here[0] < there[0] && here[1] > there[1]) {
-                System.out.println("Forward and left");
+               
                 int i = here[0];
                 int x = here[1];
                 while(i != there[0]) {
@@ -298,7 +316,7 @@ public class Board
                 }
 
             } else if (here[0] > there[0] && here[1] < there[1]) {
-                System.out.println("Backward and right");
+            
                 int i = here[0];
                 int x = here[1];
                 while(i != there[0]) {
@@ -308,7 +326,7 @@ public class Board
                 }
 
             } else if (here[0] > there[0] && here[1] > there[1]) {
-                System.out.println("Backward and left");
+                
                 int i = here[0];
                 int x = here[1];
                 while(i != there[0]) {

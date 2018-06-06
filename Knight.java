@@ -18,20 +18,11 @@ public class Knight extends BasePiece
     }
 
     private void setMoves() {
-        //knights move weird, so let's map them out
-        //-2, +1  (two left, 1 up)
-        //-1, +2  (one left, 2 up)
-        //1, 2 (one right, 2 up)
-        //2, 1 (two right, 1 up)
-        //1, -2 (one right, 2 down)
-        //2, -1 (two right, 1 down)
-        //-2, -1 (two left, 1 down)
-        //-1, -2 (one left, 2 down)
 
         //allocate memory
-        this.validMoves = new int[8][2];  //eight moves, each has two coordinates (y/x)
-
-        //let's translate that to the possible moves
+        this.validMoves = new int[8][2];  //eight moves, each has two coordinates (y/x) 
+                                          //subsequent piece classes follow similar array structure based on # possible moves
+                                          
         this.validMoves[0][0] = -2;  //first move
         this.validMoves[0][1] = 1;
 

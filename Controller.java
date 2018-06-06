@@ -52,20 +52,6 @@ public class Controller
             if (square == Piece.PieceType.NONE){
                 System.out.println("No piece at that location, try another location.");
                 continue;
-                /*input1 = in.nextLine();
-                System.out.println("And where do you want to move?");
-                input2 = in.nextLine();
-                
-                input1 = input1.replaceAll("\\s+","");
-                input2 = input2.replaceAll("\\s+","");
-                
-                x1 = convertFromString(input1);
-                x2 = convertFromString(input2);
-            
-                y1 = Character.getNumericValue(input1.charAt(2));
-                y2 = Character.getNumericValue(input2.charAt(2));
-                
-                square = board.getSquareValue(coordinates(x1,y1));*/
             }
             
             BasePiece thisPiece = board.getSquarePiece(new int[]{x1,y1});
@@ -73,24 +59,13 @@ public class Controller
                 System.out.println("This is not your piece.");
                 continue;
             }
-                
-            /*if(thisPiece == null) {
-                System.out.println("There isn't a piece on those coordinates");
-                //System.exit(0);
-            }*/
             
             //get an actual piece
             thisPiece = board.getSquarePiece(new int[]{x1,y1});
             
             System.out.println("String representation of the piece: " + thisPiece.getMarker());
             System.out.println("Piece Type: " + thisPiece.getPieceType());
-    
-            //now let's test the proper method with a good move
-            if(thisPiece.isValidMove(coordinates(x2,y2))) {
-                System.out.println("got a good move");
-            }
-    
-            //and a bad move
+        
             if(!thisPiece.isValidMove(coordinates(x2,y2))) {
                 System.out.println("Piece cannot move there!");
                 continue;                
@@ -101,25 +76,20 @@ public class Controller
                System.out.println("Invalid move.");
                continue;
             }  
-
-            //and move the white pawn to counter
-            //board.makeMove(new int[]{1,3}, new int[]{3,3});  //specifying coordintes by hand
-    
+   
+            gameOver = board.checkForWinner();
             board.renderBoard();
-            switchTurn();
-            //validate move possible
-    
-            //make sure making this move doesn't expose your king (invalid)
-    
-            //determine if there is a piece there
-    
-            //is the piece you're moving capable of taking a piece this way (i.e. pawn can only take diagonally)
-    
-            //if you took a piece, move to gutter
-    
-            //update the move array
-    
-            //re-render the board
+            
+            switchTurn();     
+        }
+        
+        System.out.println("Congratulations");
+        if(turn == Piece.Color.WHITE){
+            System.out.print(", White is the winner!");
+        }   
+        else
+        {
+            System.out.println(", Black is the winner!");
         }
     }
 
