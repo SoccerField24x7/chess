@@ -7,6 +7,8 @@
  */
 public class Board
 {
+    private static Board instance = new Board();
+    
     private Piece.PieceType[][] board; // keeps track of where the pieces are
     private int[][] game; // keeps track of the moves made
     private int moveNo;
@@ -18,7 +20,7 @@ public class Board
     public final int MAX_MOVES = 1000;  // research what an average chess game lasts.
     public final int OPEN = 0;
 
-    Board() {
+    private Board() {
         this.board = new Piece.PieceType[BOARD_SIZE_HEIGHT][BOARD_SIZE_WIDTH];
         this.initBoard();
     }
@@ -138,6 +140,10 @@ public class Board
         }
     }
 
+    public static Board getInstance(){
+        return instance;
+    }
+    
     /**
      * Returns the piece type located at the coordinates.
      *

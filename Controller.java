@@ -15,7 +15,7 @@ public class Controller
     
     public static void main(String[] args) {
         /* create the board */
-        Board board = new Board();
+        Board board = Board.getInstance();
         Scanner in = new Scanner(System.in);
         String buf = new String();
         String input1 = new String();
