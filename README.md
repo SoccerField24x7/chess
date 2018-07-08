@@ -1,5 +1,7 @@
 #Chess
+
 This started out as a student project for a Comp Sci class my son was taking. He asked if I could help him with the project and my inner geek agreed wholeheartedly! <i>we got an A BTW</i>
+
 ##Design Decisions
 The pieces classes (interface, base class, piece classes) have no idea how they are used. They only *know* who they are, their address, and how they move/take pieces.
 
